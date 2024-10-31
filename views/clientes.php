@@ -42,7 +42,7 @@
 
         <div id="clientesLista" class="mt-3 mb-3"></div>
 
-        <div class="shadow card bg-glass p-3 rounded">
+        <div class="shadow card bg-glass p-3 rounded mb-5">
             <h3>Cadastrar Cliente</h3>
 
             <form id="formIncluir">
@@ -155,21 +155,21 @@
 
                     for (var i = 0; i < aData.length; i++) {
                         var cliente = aData[i];
-                        listaCliente = "<div class='row border m-1 py-3 px-0'><div class='col-sm-6'><div class='d-flex'>";
-                        listaCliente +=    "CNPJ: " + cliente.cnpj + "</div>";
-                        listaCliente +=    "<div class='d-flex'>Código: " + cliente.codigo + "</div>";
-                        listaCliente +=    "<div class='d-flex'>Loja: " + cliente.loja + "</div>";
-                        listaCliente +=    "<div class='d-flex'>Razão Social: " + cliente.razao + "</div>";
-                        listaCliente +=    "<div class='d-flex'>Tipo: " + cliente.tipo;
-                        listaCliente +=    "</div>";
-                        listaCliente +=    "</div>";
-                        listaCliente +=    "<div class='col-sm-6 align-content-center text-right'>";
-                        listaCliente +=    "<div class='d-inline-flex m-1'><button class='btn btn-secondary' type='button' id='editar' name='editar' val='" + cliente.codigo + "'>Editar</button></div>";
-                        listaCliente +=    "<div class='d-inline-flex m-1'><button class='btn btn-danger' type='button' id='excluir' name='excluir' val='" + cliente.codigo + "'>Excluir</button></div>";
-                        listaCliente +=    "</div></div>";
+                        $('#clientesLista').append("<div class='row border m-1 py-3 px-0'><div class='col-sm-6'><div class='d-flex'>"+
+                            "CNPJ: " + cliente.cnpj + "</div>"+
+                           "<div class='d-flex'>Código: " + cliente.codigo + "</div>"+
+                           "<div class='d-flex'>Loja: " + cliente.loja + "</div>"+
+                           "<div class='d-flex'>Razão Social: " + cliente.razao + "</div>"+
+                           "<div class='d-flex'>Tipo: " + cliente.tipo+
+                           "</div>"+
+                            "</div>"+
+                            "<div class='col-sm-6 align-content-center text-right'>"+
+                           "<div class='d-inline-flex m-1'><button class='btn btn-secondary' type='button' id='editar' name='editar' val='" + cliente.codigo + "'>Editar</button></div>"+
+                           "<div class='d-inline-flex m-1'><button class='btn btn-danger' type='button' id='excluir' name='excluir' val='" + cliente.codigo + "'>Excluir</button></div>"+
+                           "</div></div>");
                     }
 
-                    $('#clientesLista').html(listaCliente);
+                    
 
                 } else {
 
