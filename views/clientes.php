@@ -4,11 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Clientes</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <style>
     .bg-glass{
@@ -30,42 +31,42 @@
 <body>
     
     <div class="d-flex bg-dark text-white mb-5 justify-content-center">
-        <h1>Gerenciamento de Clientes - Protheus</h1>
+        <h2 class="text-center text-nowrap">Clientes - Protheus</h1>
     </div>
     
     <div class="container">
 
         <div class="shadow card bg-glass p-3 rounded mb-5">
-            <h3 class="text-center">Cadastrar Cliente</h3>
+            <h3 class="text-center">Cadastrar</h3>
 
             <form id="formIncluir">
                 <div class="row">
                     <div class="col-sm-3">
                         <label>Código:</label>
-                        <input type="text" id="codigo" placeholder="ex: (1, 2, 3)" class="w-100" required>
+                        <input type="text" id="codigo" placeholder="ex: (1, 2, 3)" class="w-100 form-control" maxlength="5" required>
                     </div>
                     <div class="col-sm-3">
                         <label>Loja:</label>
-                        <input type="text" id="loja" placeholder="ex: (Loja Teste)" class="w-100" required>
+                        <input type="text" id="loja" placeholder="ex: (1, 2, 3)" class="w-100 form-control" maxlength="3" required>
                     </div>
                     <div class="col-sm-3">
                         <label>CNPJ:</label>
-                        <input type="text" id="cnpj" placeholder="ex: (12.345.678/0001-90)" class="w-100" required>
+                        <input type="text" id="cnpj" placeholder="ex: (12.345.678/0001-90)" class="w-100 form-control" maxlength="20" required>
                     </div>
                     <div class="col-sm-3">
                         <label>Nome:</label>
-                        <input type="text" id="nome" placeholder="ex: (Nome do Cliente)" class="w-100" required>
+                        <input type="text" id="nome" placeholder="ex: (Nome do Cliente)" class="w-100 form-control" maxlength="50" required>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-sm-3">
                         <label>Nome Reduzido:</label>
-                        <input type="text" id="nreduz" placeholder="ex: (Nome curto)" class="w-100" required>
+                        <input type="text" id="nreduz" placeholder="ex: (Nome curto)" class="w-100 form-control" maxlength="10" required>
                     </div>
                     <div class="col-sm-3">
                         <label>Tipo:</label>
-                        <select id="tipo" class="w-100" required>
+                        <select id="tipo" class="w-100 form-control" required>
                             <option value="">Selecione</option>
                             <option value="F">F</option>
                             <option value="L">L</option>
@@ -76,68 +77,109 @@
                     </div>
                     <div class="col-sm-3">
                         <label>Pessoa:</label>
-                        <select id="pessoa" class="w-100" required>
+                        <select id="pessoa" class="w-100 form-control" required>
                             <option value="">Selecione</option>
                             <option value="J">J</option>
                             <option value="F">F</option>
                         </select>
                     </div>
-                    <div class="col-sm-3">
-                        <label>Endereço:</label>
-                        <input type="text" id="endereco" placeholder="ex: (Rua Exemplo, 123)" class="w-100" required>
-                    </div>
+                    
                 </div>
 
+                <hr>
+
                 <div class="row">
+
+                    <div class="col-sm-3">
+                        <label>Endereço:</label>
+                        <input type="text" id="endereco" placeholder="ex: (Rua Exemplo, 123)" class="w-100 form-control" maxlength="100" required>
+                    </div>
+
                     <div class="col-sm-3">
                         <label>Cidade:</label>
-                        <input type="text" id="cidade" placeholder="ex: (TESTE)" class="w-100" required>
+                        <input type="text" id="cidade" placeholder="ex: (TESTE)" class="w-100 form-control" maxlength="50" required>
                     </div>
                     <div class="col-sm-3">
                         <label>Bairro:</label>
-                        <input type="text" id="bairro" placeholder="ex: (Bairro das Palmeiras)" class="w-100" required>
+                        <input type="text" id="bairro" placeholder="ex: (Bairro das Palmeiras)" class="w-100 form-control" maxlength="50" required>
                     </div>
-                    <div class="col-sm-3">
-                        <label>Estado:</label>
-                        <input type="text" id="estado" placeholder="ex: (SP)" class="w-100" required>
-                    </div>
+
                     <div class="col-sm-3">
                         <label>CEP:</label>
-                        <input type="text" id="cep" placeholder="ex: (12345-678)" class="w-100" required>
+                        <input type="text" id="cep" placeholder="ex: (12345-678)" class="w-100 form-control" maxlength="10" required>
                     </div>
-                </div>
 
-                <div class="row">
                     <div class="col-sm-3">
                         <label>Código Município:</label>
-                        <input type="text" id="codmun" placeholder="ex: (22307)" class="w-100" required>
+                        <input type="text" id="codmun" placeholder="ex: (22307)" class="w-100 form-control">
+                    </div>
+
+                    <div class="col-sm-3">
+                        <label>Estado:</label>
+                        <select id="estado" class="w-100 form-control" required>
+                            <option value="">Selecione</option>
+                            <option value="AC">Acre (AC)</option>
+                            <option value="AL">Alagoas (AL)</option>
+                            <option value="AP">Amapá (AP)</option>
+                            <option value="AM">Amazonas (AM)</option>
+                            <option value="BA">Bahia (BA)</option>
+                            <option value="CE">Ceará (CE)</option>
+                            <option value="DF">Distrito Federal (DF)</option>
+                            <option value="ES">Espírito Santo (ES)</option>
+                            <option value="GO">Goiás (GO)</option>
+                            <option value="MA">Maranhão (MA)</option>
+                            <option value="MT">Mato Grosso (MT)</option>
+                            <option value="MS">Mato Grosso do Sul (MS)</option>
+                            <option value="MG">Minas Gerais (MG)</option>
+                            <option value="PA">Pará (PA)</option>
+                            <option value="PB">Paraíba (PB)</option>
+                            <option value="PR">Paraná (PR)</option>
+                            <option value="PE">Pernambuco (PE)</option>
+                            <option value="PI">Piauí (PI)</option>
+                            <option value="RJ">Rio de Janeiro (RJ)</option>
+                            <option value="RN">Rio Grande do Norte (RN)</option>
+                            <option value="RS">Rio Grande do Sul (RS)</option>
+                            <option value="RO">Rondônia (RO)</option>
+                            <option value="RR">Roraima (RR)</option>
+                            <option value="SC">Santa Catarina (SC)</option>
+                            <option value="SP">São Paulo (SP)</option>
+                            <option value="SE">Sergipe (SE)</option>
+                            <option value="TO">Tocantins (TO)</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    
+                    <div class="col-sm-3">
+                        <label>DDD:</label>
+                        <input type="text" id="ddd" placeholder="ex: (11)" class="w-100 form-control" maxlength="3">
                     </div>
                     <div class="col-sm-3">
+                        <label>Telefone:</label>
+                        <input type="text" id="tel" placeholder="ex: (1234-5678)" class="w-100 form-control" maxlength="20">
+                    </div>
+
+                    <div class="col-sm-3">
+                        <label>Email:</label>
+                        <input type="email" id="email" placeholder="ex: (cliente@exemplo.com)" class="w-100 form-control" maxlength="50">
+                    </div>
+
+                    <div class="col-sm-3">
                         <label>Status:</label>
-                        <select id="status" class="w-100" required>
+                        <select id="status" class="w-100 form-control" required>
                             <option value="1">Ativo</option>
                             <option value="0">Inativo</option>
                         </select>
                     </div>
-                    <div class="col-sm-3">
-                        <label>DDD:</label>
-                        <input type="text" id="ddd" placeholder="ex: (11)" class="w-100">
-                    </div>
-                    <div class="col-sm-3">
-                        <label>Telefone:</label>
-                        <input type="text" id="tel" placeholder="ex: (1234-5678)" class="w-100">
-                    </div>
+
                 </div>
 
-                <div class="row">
-                    <div class="col-sm-3">
-                        <label>Email:</label>
-                        <input type="email" id="email" placeholder="ex: (cliente@exemplo.com)" class="w-100">
-                    </div>
-                </div>
-
-                <div class="d-flex mt-3 justify-content-center">
-                    <button type="submit" class="btn btn-success w-50">Salvar</button>
+                <div class="d-flex mt-4 justify-content-center">
+                    <button type="submit" class="btn btn-success w-50"><span class="mdi mdi-content-save"></span> Salvar</button>
                 </div>
             </form>
 
@@ -146,26 +188,50 @@
 
         </div>
 
-        <hr class="mb-5">
+        <!-- <hr class="mb-5"> -->
 
-        <h3 class="text-center mb-5">Busca de Clientes:</h3>
+        <h3 class="text-center my-5 py-2 shadow-sm bg-glass rounded">Busca:</h3>
 
         <div class="row align-content-center mb-5">
             <div class="col-sm-6 text-center">
-                <div class="input-group">
-                    <span class="input-group-text border-0">ID:</span>
-                    <input type="text" name="inputBuscaClienteCodigo" id="inputBuscaClienteCodigo" class="w-25">
+                <!-- <div class="row">
+                    <div class="col-sm-5 align-content-center text-left">
+                        <span class="">ID:</span>
+                        <input type="text" name="inputBuscaClienteCodigo" id="inputBuscaClienteCodigo" class="w-50">
+                    </div>
+                    
+                    <div class="col-sm-5 align-content-center text-left">
+                        <span class="">Loja:</span>
+                        <input type="text" name="inputBuscaClienteLoja" id="inputBuscaClienteLoja" class="w-50">
+                    </div>
 
-                    <span class="input-group-text border-0">Loja:</span>
-                    <input type="text" name="inputBuscaClienteLoja" id="inputBuscaClienteLoja" class="w-25">
+                    <div class="col-sm-2 align-content-center text-left">
+                        <button type="button" class="btn btn-primary" name="btnBuscaCliente" id="btnBuscaCliente">Buscar</button>
+                    </div>
+                </div> -->
 
-                    <button type="button" class="btn btn-primary" name="btnBuscaCliente" id="btnBuscaCliente">Buscar</button>
+                <div class="d-flex align-items-center mb-4">
+                    <div class="d-flex align-items-center flex-fill">
+                        <span>ID:</span>
+                        <input type="text" name="inputBuscaClienteCodigo" id="inputBuscaClienteCodigo" class="form-control mx-2 w-100">
+                    </div>
+                    
+                    <div class="d-flex align-items-center flex-fill">
+                        <span>Loja:</span>
+                        <input type="text" name="inputBuscaClienteLoja" id="inputBuscaClienteLoja" class="form-control mx-2 w-100">
+                    </div>
+
+                    <div class="d-flex align-items-center justify-content-end">
+                        <button type="button" class="btn btn-primary text-nowrap" name="btnBuscaCliente" id="btnBuscaCliente"><span class="mdi mdi-magnify"></span> Buscar</button>
+                    </div>
                 </div>
+
+
             </div>
             
-            <div class="col-sm-6 text-right">
-                <button id="listarClientes" class="btn btn-primary">Listar Clientes</button>
-                <button id="limparClientes" class="btn btn-danger d-none">Limpar</button>
+            <div class="col-sm-6 text-center text-sm-right">
+                <button id="listarClientes" class="btn btn-primary"><span class="mdi mdi-format-list-bulleted"></span> Listar</button>
+                <button id="limparClientes" class="btn btn-danger d-none"><span class="mdi mdi-delete"></span> Limpar</button>
             </div>
 
             
@@ -215,47 +281,87 @@
                 const data = await response.json();
                 var aData = data.items;
 
+                // var aData = [{
+                //     "codigo": 2,
+                //     "loja": 02,
+                //     "nome": "aaa",
+                //     "nreduz": "as",
+                //     "pessoa": "pessoa",
+                //     "cnpj": "cnpj",
+                //     "tipo": "tipo",
+                //     "endereco": "endereco",
+                //     "bairro": "bairro",
+                //     "cidade": "cidade",
+                //     "codmun": "codmun",
+                //     "estado": "SP",
+                //     "cep": "cep",
+                //     "status": "status",
+                //     "ddd": "ddd",
+                //     "tel": "tel",
+                //     "email": "email"
+                // },
+                // {
+                //     "codigo": 1,
+                //     "loja": 02,
+                //     "nome": "aaa",
+                //     "nreduz": "as",
+                //     "pessoa": "pessoa",
+                //     "cnpj": "cnpj",
+                //     "tipo": "tipo",
+                //     "endereco": "endereco",
+                //     "bairro": "bairro",
+                //     "cidade": "cidade",
+                //     "codmun": "codmun",
+                //     "estado": "MG",
+                //     "cep": "cep",
+                //     "status": "status",
+                //     "ddd": "ddd",
+                //     "tel": "tel",
+                //     "email": "email"
+                // }];
+
                 $('#clientesLista').html('');
 
                 console.log(aData);
 
                 if (Array.isArray(aData) && aData.length > 0) {
-                    // Loop para cada cliente
+                    
                     for (var i = 0; i < aData.length; i++) {
                         var cliente = aData[i];
 
                         $('#clientesLista').append(
 
 
-                            "<div class='row border m-1 py-3 px-0' id='cliente_" + cliente.codigo + "_" + cliente.loja + "'>" +
+                            "<div class='row border shadow m-1 py-3 px-0 mb-4' id='cliente_" + cliente.codigo + "_" + cliente.loja + "'>" +
                                 "<div class='col-sm-12'>" +
                                     "<form id='formCliente_" + cliente.codigo + "_" + cliente.loja + "'>" +
                                         "<div class='row'>" +
                                             "<div class='col-sm-3'>" +
                                                 "<label>Código:</label>" +
-                                                "<input type='text' value='" + cliente.codigo + "' id='codigo_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                                "<input type='text' value='" + cliente.codigo + "' id='codigo_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
                                             "</div>" +
                                             "<div class='col-sm-3'>" +
                                                 "<label>Loja:</label>" +
-                                                "<input type='text' value='" + cliente.loja + "' id='loja_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                                "<input type='text' value='" + cliente.loja + "' id='loja_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
                                             "</div>" +
                                             "<div class='col-sm-3'>" +
                                                 "<label>CNPJ:</label>" +
-                                                "<input type='text' value='" + cliente.cnpj + "' id='cnpj_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                                "<input type='text' value='" + cliente.cnpj + "' id='cnpj_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
                                             "</div>" +
                                             "<div class='col-sm-3'>" +
                                                 "<label>Nome:</label>" +
-                                                "<input type='text' value='" + cliente.nome + "' id='nome_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                                "<input type='text' value='" + cliente.nome + "' id='nome_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
                                             "</div>" +
                                         "</div>" +
+
                                         "<div class='row'>" +
                                             "<div class='col-sm-3'>" +
                                                 "<label>Nome Reduzido:</label>" +
-                                                "<input type='text' value='" + cliente.nreduz + "' id='nreduz_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                                "<input type='text' value='" + cliente.nreduz + "' id='nreduz_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
                                             "</div>" +
                                             "<div class='col-sm-3'>" +
                                                 "<label>Tipo:</label>" +
-                                                "<select id='tipo_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                                "<select id='tipo_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
                                                     "<option value=''>Selecione</option>" +
                                                     "<option value='F'" + (cliente.tipo === 'F' ? " selected" : "") + ">F</option>" +
                                                     "<option value='L'" + (cliente.tipo === 'L' ? " selected" : "") + ">L</option>" +
@@ -266,70 +372,101 @@
                                             "</div>" +
                                             "<div class='col-sm-3'>" +
                                                 "<label>Pessoa:</label>" +
-                                                "<select id='pessoa_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                                "<select id='pessoa_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
                                                     "<option value=''>Selecione</option>" +
                                                     "<option value='J'" + (cliente.pessoa === 'J' ? " selected" : "") + ">J</option>" +
                                                     "<option value='F'" + (cliente.pessoa === 'F' ? " selected" : "") + ">F</option>" +
                                                 "</select>" +
                                             "</div>" +
-                                            "<div class='col-sm-3'>" +
-                                                "<label>Endereço:</label>" +
-                                                "<input type='text' value='" + cliente.endereco + "' id='endereco_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
-                                            "</div>" +
                                         "</div>" +
+
+                                        "<hr>" +
+
                                         "<div class='row'>" +
                                             "<div class='col-sm-3'>" +
+                                                "<label>Endereço:</label>" +
+                                                "<input type='text' value='" + cliente.endereco + "' id='endereco_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                            "</div>" +
+                                            "<div class='col-sm-3'>" +
                                                 "<label>Cidade:</label>" +
-                                                "<input type='text' value='" + cliente.cidade + "' id='cidade_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                                "<input type='text' value='" + cliente.cidade + "' id='cidade_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
                                             "</div>" +
                                             "<div class='col-sm-3'>" +
                                                 "<label>Bairro:</label>" +
-                                                "<input type='text' value='" + cliente.bairro + "' id='bairro_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
-                                            "</div>" +
-                                            "<div class='col-sm-3'>" +
-                                                "<label>Estado:</label>" +
-                                                "<input type='text' value='" + cliente.estado + "' id='estado_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                                "<input type='text' value='" + cliente.bairro + "' id='bairro_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
                                             "</div>" +
                                             "<div class='col-sm-3'>" +
                                                 "<label>CEP:</label>" +
-                                                "<input type='text' value='" + cliente.cep + "' id='cep_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                                "<input type='text' value='" + cliente.cep + "' id='cep_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
                                             "</div>" +
-                                        "</div>" +
-                                        "<div class='row'>" +
                                             "<div class='col-sm-3'>" +
                                                 "<label>Código Município:</label>" +
-                                                "<input type='text' value='" + cliente.codmun + "' id='codmun_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                                "<input type='text' value='" + cliente.codmun + "' id='codmun_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                            "</div>" +
+                                            "<div class='col-sm-3'>" +
+                                                "<label>Estado:</label>" +
+                                                "<select id='estado_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                                    "<option value=''>Selecione</option>" +
+                                                    "<option value='AC'" + (cliente.estado === 'AC' ? " selected" : "") + ">Acre (AC)</option>" +
+                                                    "<option value='AL'" + (cliente.estado === 'AL' ? " selected" : "") + ">Alagoas (AL)</option>" +
+                                                    "<option value='AP'" + (cliente.estado === 'AP' ? " selected" : "") + ">Amapá (AP)</option>" +
+                                                    "<option value='AM'" + (cliente.estado === 'AM' ? " selected" : "") + ">Amazonas (AM)</option>" +
+                                                    "<option value='BA'" + (cliente.estado === 'BA' ? " selected" : "") + ">Bahia (BA)</option>" +
+                                                    "<option value='CE'" + (cliente.estado === 'CE' ? " selected" : "") + ">Ceará (CE)</option>" +
+                                                    "<option value='DF'" + (cliente.estado === 'DF' ? " selected" : "") + ">Distrito Federal (DF)</option>" +
+                                                    "<option value='ES'" + (cliente.estado === 'ES' ? " selected" : "") + ">Espírito Santo (ES)</option>" +
+                                                    "<option value='GO'" + (cliente.estado === 'GO' ? " selected" : "") + ">Goiás (GO)</option>" +
+                                                    "<option value='MA'" + (cliente.estado === 'MA' ? " selected" : "") + ">Maranhão (MA)</option>" +
+                                                    "<option value='MT'" + (cliente.estado === 'MT' ? " selected" : "") + ">Mato Grosso (MT)</option>" +
+                                                    "<option value='MS'" + (cliente.estado === 'MS' ? " selected" : "") + ">Mato Grosso do Sul (MS)</option>" +
+                                                    "<option value='MG'" + (cliente.estado === 'MG' ? " selected" : "") + ">Minas Gerais (MG)</option>" +
+                                                    "<option value='PA'" + (cliente.estado === 'PA' ? " selected" : "") + ">Pará (PA)</option>" +
+                                                    "<option value='PB'" + (cliente.estado === 'PB' ? " selected" : "") + ">Paraíba (PB)</option>" +
+                                                    "<option value='PR'" + (cliente.estado === 'PR' ? " selected" : "") + ">Paraná (PR)</option>" +
+                                                    "<option value='PE'" + (cliente.estado === 'PE' ? " selected" : "") + ">Pernambuco (PE)</option>" +
+                                                    "<option value='PI'" + (cliente.estado === 'PI' ? " selected" : "") + ">Piauí (PI)</option>" +
+                                                    "<option value='RJ'" + (cliente.estado === 'RJ' ? " selected" : "") + ">Rio de Janeiro (RJ)</option>" +
+                                                    "<option value='RN'" + (cliente.estado === 'RN' ? " selected" : "") + ">Rio Grande do Norte (RN)</option>" +
+                                                    "<option value='RS'" + (cliente.estado === 'RS' ? " selected" : "") + ">Rio Grande do Sul (RS)</option>" +
+                                                    "<option value='RO'" + (cliente.estado === 'RO' ? " selected" : "") + ">Rondônia (RO)</option>" +
+                                                    "<option value='RR'" + (cliente.estado === 'RR' ? " selected" : "") + ">Roraima (RR)</option>" +
+                                                    "<option value='SC'" + (cliente.estado === 'SC' ? " selected" : "") + ">Santa Catarina (SC)</option>" +
+                                                    "<option value='SP'" + (cliente.estado === 'SP' ? " selected" : "") + ">São Paulo (SP)</option>" +
+                                                    "<option value='SE'" + (cliente.estado === 'SE' ? " selected" : "") + ">Sergipe (SE)</option>" +
+                                                    "<option value='TO'" + (cliente.estado === 'TO' ? " selected" : "") + ">Tocantins (TO)</option>" +
+                                                "</select>" +
+                                            "</div>" +
+                                        "</div>" +
+
+                                        "<hr>" +
+
+                                        "<div class='row'>" +
+                                            "<div class='col-sm-3'>" +
+                                                "<label>Telefone:</label>" +
+                                                "<input type='text' value='" + cliente.telefone + "' id='telefone_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                            "</div>" +
+                                            "<div class='col-sm-3'>" +
+                                                "<label>E-mail:</label>" +
+                                                "<input type='text' value='" + cliente.email + "' id='email_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
                                             "</div>" +
                                             "<div class='col-sm-3'>" +
                                                 "<label>Status:</label>" +
-                                                "<select id='status_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                                "<select id='status_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
                                                     "<option value='1'" + (cliente.status === "1" ? " selected" : "") + ">Ativo</option>" +
                                                     "<option value='0'" + (cliente.status === "0" ? " selected" : "") + ">Inativo</option>" +
                                                 "</select>" +
                                             "</div>" +
-                                            "<div class='col-sm-3'>" +
-                                                "<label>DDD:</label>" +
-                                                "<input type='text' value='" + cliente.ddd + "' id='ddd_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
-                                            "</div>" +
-                                            "<div class='col-sm-3'>" +
-                                                "<label>Telefone:</label>" +
-                                                "<input type='text' value='" + cliente.tel + "' id='tel_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
-                                            "</div>" +
                                         "</div>" +
-                                        "<div class='row'>" +
-                                            "<div class='col-sm-3'>" +
-                                                "<label>Email:</label>" +
-                                                "<input type='email' value='" + cliente.email + "' id='email_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                            "<div class='d-flex mt-3 justify-content-center'>" +
+                                                "<button type='button' id='btnEdit_" + cliente.codigo + "_" + cliente.loja + "' class='btn btn-secondary m-1' onclick='btnEditarCliente(\"" + cliente.codigo + "\", \"" + cliente.loja + "\")'><span class='mdi mdi-pencil'></span> Editar</button>"+
+                                                "<button type='button' id='btnSalvarEdit_" + cliente.codigo + "_" + cliente.loja + "' class='btn btn-success m-1 d-none' onclick='editarCliente(\"" + cliente.codigo + "\", \"" + cliente.loja + "\")'><span class='mdi mdi-content-save'></span> Salvar</button>" +
+                                                "<button type='button' class='btn btn-danger m-1' onclick='excluirCliente(\"" + cliente.codigo + "\", \"" + cliente.loja + "\")'><span class='mdi mdi-delete'></span> Excluir</button>" +
                                             "</div>" +
-                                        "</div>" +
-                                        "<div class='d-flex mt-3 justify-content-center'>" +
-                                            "<button type='button' class='btn btn-secondary m-1' onclick='editarCliente(\"" + cliente.codigo + "\", \"" + cliente.loja + "\")'>Editar</button>" +
-                                            "<button type='button' class='btn btn-danger m-1' onclick='excluirCliente(\"" + cliente.codigo + "\", \"" + cliente.loja + "\")'>Excluir</button>" +
-                                        "</div>" +
                                         "<div class='d-flex justify-content-center mt-3' id='resultado_" + cliente.codigo + "_" + cliente.loja + "'></div>" +
                                     "</form>" +
                                 "</div>" +
                             "</div>"
+
 
 
                         );
@@ -374,115 +511,255 @@
                 if (Array.isArray(cliente) && cliente.length > 0) {
                     cliente = cliente[0];
 
-                    $('#clientesLista').append(
+                    // $('#clientesLista').append(
 
-                        "<div class='row border m-1 py-3 px-0' id='cliente_" + cliente.codigo + "_" + cliente.loja + "'>" +
-                            "<div class='col-sm-12'>" +
-                                "<form id='formCliente_" + cliente.codigo + "_" + cliente.loja + "'>" +
-                                    "<div class='row'>" +
-                                        "<div class='col-sm-3'>" +
-                                            "<label>Código:</label>" +
-                                            "<input type='text' value='" + cliente.codigo + "' id='codigo_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
-                                        "</div>" +
-                                        "<div class='col-sm-3'>" +
-                                            "<label>Loja:</label>" +
-                                            "<input type='text' value='" + cliente.loja + "' id='loja_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
-                                        "</div>" +
-                                        "<div class='col-sm-3'>" +
-                                            "<label>CNPJ:</label>" +
-                                            "<input type='text' value='" + cliente.cnpj + "' id='cnpj_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
-                                        "</div>" +
-                                        "<div class='col-sm-3'>" +
-                                            "<label>Nome:</label>" +
-                                            "<input type='text' value='" + cliente.nome + "' id='nome_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
-                                        "</div>" +
-                                    "</div>" +
-                                    "<div class='row'>" +
-                                        "<div class='col-sm-3'>" +
-                                            "<label>Nome Reduzido:</label>" +
-                                            "<input type='text' value='" + cliente.nreduz + "' id='nreduz_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
-                                        "</div>" +
-                                        "<div class='col-sm-3'>" +
-                                            "<label>Tipo:</label>" +
-                                            "<select id='tipo_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
-                                                "<option value=''>Selecione</option>" +
-                                                "<option value='F'" + (cliente.tipo === 'F' ? " selected" : "") + ">F</option>" +
-                                                "<option value='L'" + (cliente.tipo === 'L' ? " selected" : "") + ">L</option>" +
-                                                "<option value='R'" + (cliente.tipo === 'R' ? " selected" : "") + ">R</option>" +
-                                                "<option value='S'" + (cliente.tipo === 'S' ? " selected" : "") + ">S</option>" +
-                                                "<option value='X'" + (cliente.tipo === 'X' ? " selected" : "") + ">X</option>" +
-                                            "</select>" +
-                                        "</div>" +
-                                        "<div class='col-sm-3'>" +
-                                            "<label>Pessoa:</label>" +
-                                            "<select id='pessoa_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
-                                                "<option value=''>Selecione</option>" +
-                                                "<option value='J'" + (cliente.pessoa === 'J' ? " selected" : "") + ">J</option>" +
-                                                "<option value='F'" + (cliente.pessoa === 'F' ? " selected" : "") + ">F</option>" +
-                                            "</select>" +
-                                        "</div>" +
-                                        "<div class='col-sm-3'>" +
-                                            "<label>Endereço:</label>" +
-                                            "<input type='text' value='" + cliente.endereco + "' id='endereco_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
-                                        "</div>" +
-                                    "</div>" +
-                                    "<div class='row'>" +
-                                        "<div class='col-sm-3'>" +
-                                            "<label>Cidade:</label>" +
-                                            "<input type='text' value='" + cliente.cidade + "' id='cidade_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
-                                        "</div>" +
-                                        "<div class='col-sm-3'>" +
-                                            "<label>Bairro:</label>" +
-                                            "<input type='text' value='" + cliente.bairro + "' id='bairro_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
-                                        "</div>" +
-                                        "<div class='col-sm-3'>" +
-                                            "<label>Estado:</label>" +
-                                            "<input type='text' value='" + cliente.estado + "' id='estado_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
-                                        "</div>" +
-                                        "<div class='col-sm-3'>" +
-                                            "<label>CEP:</label>" +
-                                            "<input type='text' value='" + cliente.cep + "' id='cep_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
-                                        "</div>" +
-                                    "</div>" +
-                                    "<div class='row'>" +
-                                        "<div class='col-sm-3'>" +
-                                            "<label>Código Município:</label>" +
-                                            "<input type='text' value='" + cliente.codmun + "' id='codmun_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
-                                        "</div>" +
-                                        "<div class='col-sm-3'>" +
-                                            "<label>Status:</label>" +
-                                            "<select id='status_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
-                                                "<option value='1'" + (cliente.status === "1" ? " selected" : "") + ">Ativo</option>" +
-                                                "<option value='0'" + (cliente.status === "0" ? " selected" : "") + ">Inativo</option>" +
-                                            "</select>" +
-                                        "</div>" +
-                                        "<div class='col-sm-3'>" +
-                                            "<label>DDD:</label>" +
-                                            "<input type='text' value='" + cliente.ddd + "' id='ddd_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
-                                        "</div>" +
-                                        "<div class='col-sm-3'>" +
-                                            "<label>Telefone:</label>" +
-                                            "<input type='text' value='" + cliente.tel + "' id='tel_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
-                                        "</div>" +
-                                    "</div>" +
-                                    "<div class='row'>" +
-                                        "<div class='col-sm-3'>" +
-                                            "<label>Email:</label>" +
-                                            "<input type='email' value='" + cliente.email + "' id='email_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
-                                        "</div>" +
-                                    "</div>" +
-                                    "<div class='d-flex mt-3 justify-content-center'>" +
-                                        "<button type='button' class='btn btn-secondary m-1' onclick='editarCliente(\"" + cliente.codigo + "\", \"" + cliente.loja + "\")'>Editar</button>" +
-                                        "<button type='button' class='btn btn-danger m-1' onclick='excluirCliente(\"" + cliente.codigo + "\", \"" + cliente.loja + "\")'>Excluir</button>" +
-                                    "</div>" +
-                                    "<div class='d-flex justify-content-center mt-3' id='resultado_" + cliente.codigo + "_" + cliente.loja + "'></div>" +
-                                "</form>" +
-                            "</div>" +
-                        "</div>"
+                    //     "<div class='row border m-1 py-3 px-0' id='cliente_" + cliente.codigo + "_" + cliente.loja + "'>" +
+                    //         "<div class='col-sm-12'>" +
+                    //             "<form id='formCliente_" + cliente.codigo + "_" + cliente.loja + "'>" +
+                    //                 "<div class='row'>" +
+                    //                     "<div class='col-sm-3'>" +
+                    //                         "<label>Código:</label>" +
+                    //                         "<input type='text' value='" + cliente.codigo + "' id='codigo_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                    //                     "</div>" +
+                    //                     "<div class='col-sm-3'>" +
+                    //                         "<label>Loja:</label>" +
+                    //                         "<input type='text' value='" + cliente.loja + "' id='loja_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                    //                     "</div>" +
+                    //                     "<div class='col-sm-3'>" +
+                    //                         "<label>CNPJ:</label>" +
+                    //                         "<input type='text' value='" + cliente.cnpj + "' id='cnpj_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                    //                     "</div>" +
+                    //                     "<div class='col-sm-3'>" +
+                    //                         "<label>Nome:</label>" +
+                    //                         "<input type='text' value='" + cliente.nome + "' id='nome_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                    //                     "</div>" +
+                    //                 "</div>" +
+                    //                 "<div class='row'>" +
+                    //                     "<div class='col-sm-3'>" +
+                    //                         "<label>Nome Reduzido:</label>" +
+                    //                         "<input type='text' value='" + cliente.nreduz + "' id='nreduz_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                    //                     "</div>" +
+                    //                     "<div class='col-sm-3'>" +
+                    //                         "<label>Tipo:</label>" +
+                    //                         "<select id='tipo_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                    //                             "<option value=''>Selecione</option>" +
+                    //                             "<option value='F'" + (cliente.tipo === 'F' ? " selected" : "") + ">F</option>" +
+                    //                             "<option value='L'" + (cliente.tipo === 'L' ? " selected" : "") + ">L</option>" +
+                    //                             "<option value='R'" + (cliente.tipo === 'R' ? " selected" : "") + ">R</option>" +
+                    //                             "<option value='S'" + (cliente.tipo === 'S' ? " selected" : "") + ">S</option>" +
+                    //                             "<option value='X'" + (cliente.tipo === 'X' ? " selected" : "") + ">X</option>" +
+                    //                         "</select>" +
+                    //                     "</div>" +
+                    //                     "<div class='col-sm-3'>" +
+                    //                         "<label>Pessoa:</label>" +
+                    //                         "<select id='pessoa_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                    //                             "<option value=''>Selecione</option>" +
+                    //                             "<option value='J'" + (cliente.pessoa === 'J' ? " selected" : "") + ">J</option>" +
+                    //                             "<option value='F'" + (cliente.pessoa === 'F' ? " selected" : "") + ">F</option>" +
+                    //                         "</select>" +
+                    //                     "</div>" +
+                    //                     "<div class='col-sm-3'>" +
+                    //                         "<label>Endereço:</label>" +
+                    //                         "<input type='text' value='" + cliente.endereco + "' id='endereco_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                    //                     "</div>" +
+                    //                 "</div>" +
+                    //                 "<div class='row'>" +
+                    //                     "<div class='col-sm-3'>" +
+                    //                         "<label>Cidade:</label>" +
+                    //                         "<input type='text' value='" + cliente.cidade + "' id='cidade_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                    //                     "</div>" +
+                    //                     "<div class='col-sm-3'>" +
+                    //                         "<label>Bairro:</label>" +
+                    //                         "<input type='text' value='" + cliente.bairro + "' id='bairro_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                    //                     "</div>" +
+                    //                     "<div class='col-sm-3'>" +
+                    //                         "<label>Estado:</label>" +
+                    //                         "<input type='text' value='" + cliente.estado + "' id='estado_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                    //                     "</div>" +
+                    //                     "<div class='col-sm-3'>" +
+                    //                         "<label>CEP:</label>" +
+                    //                         "<input type='text' value='" + cliente.cep + "' id='cep_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                    //                     "</div>" +
+                    //                 "</div>" +
+                    //                 "<div class='row'>" +
+                    //                     "<div class='col-sm-3'>" +
+                    //                         "<label>Código Município:</label>" +
+                    //                         "<input type='text' value='" + cliente.codmun + "' id='codmun_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                    //                     "</div>" +
+                    //                     "<div class='col-sm-3'>" +
+                    //                         "<label>Status:</label>" +
+                    //                         "<select id='status_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                    //                             "<option value='1'" + (cliente.status === "1" ? " selected" : "") + ">Ativo</option>" +
+                    //                             "<option value='0'" + (cliente.status === "0" ? " selected" : "") + ">Inativo</option>" +
+                    //                         "</select>" +
+                    //                     "</div>" +
+                    //                     "<div class='col-sm-3'>" +
+                    //                         "<label>DDD:</label>" +
+                    //                         "<input type='text' value='" + cliente.ddd + "' id='ddd_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                    //                     "</div>" +
+                    //                     "<div class='col-sm-3'>" +
+                    //                         "<label>Telefone:</label>" +
+                    //                         "<input type='text' value='" + cliente.tel + "' id='tel_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                    //                     "</div>" +
+                    //                 "</div>" +
+                    //                 "<div class='row'>" +
+                    //                     "<div class='col-sm-3'>" +
+                    //                         "<label>Email:</label>" +
+                    //                         "<input type='email' value='" + cliente.email + "' id='email_" + cliente.codigo + "_" + cliente.loja + "' class='w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                    //                     "</div>" +
+                    //                 "</div>" +
+                    //                 "<div class='d-flex mt-3 justify-content-center'>" +
+                    //                     "<button type='button' class='btn btn-secondary m-1' onclick='editarCliente(\"" + cliente.codigo + "\", \"" + cliente.loja + "\")'>Editar</button>" +
+                    //                     "<button type='button' class='btn btn-danger m-1' onclick='excluirCliente(\"" + cliente.codigo + "\", \"" + cliente.loja + "\")'>Excluir</button>" +
+                    //                 "</div>" +
+                    //                 "<div class='d-flex justify-content-center mt-3' id='resultado_" + cliente.codigo + "_" + cliente.loja + "'></div>" +
+                    //             "</form>" +
+                    //         "</div>" +
+                    //     "</div>"
 
 
                             
+                    // );
+
+                    $('#clientesLista').append(
+                            "<div class='row border shadow m-1 py-3 px-0 mb-4' id='cliente_" + cliente.codigo + "_" + cliente.loja + "'>" +
+                                "<div class='col-sm-12'>" +
+                                    "<form id='formCliente_" + cliente.codigo + "_" + cliente.loja + "'>" +
+                                        "<div class='row'>" +
+                                            "<div class='col-sm-3'>" +
+                                                "<label>Código:</label>" +
+                                                "<input type='text' value='" + cliente.codigo + "' id='codigo_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                            "</div>" +
+                                            "<div class='col-sm-3'>" +
+                                                "<label>Loja:</label>" +
+                                                "<input type='text' value='" + cliente.loja + "' id='loja_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                            "</div>" +
+                                            "<div class='col-sm-3'>" +
+                                                "<label>CNPJ:</label>" +
+                                                "<input type='text' value='" + cliente.cnpj + "' id='cnpj_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                            "</div>" +
+                                            "<div class='col-sm-3'>" +
+                                                "<label>Nome:</label>" +
+                                                "<input type='text' value='" + cliente.nome + "' id='nome_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                            "</div>" +
+                                        "</div>" +
+
+                                        "<div class='row'>" +
+                                            "<div class='col-sm-3'>" +
+                                                "<label>Nome Reduzido:</label>" +
+                                                "<input type='text' value='" + cliente.nreduz + "' id='nreduz_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                            "</div>" +
+                                            "<div class='col-sm-3'>" +
+                                                "<label>Tipo:</label>" +
+                                                "<select id='tipo_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                                    "<option value=''>Selecione</option>" +
+                                                    "<option value='F'" + (cliente.tipo === 'F' ? " selected" : "") + ">F</option>" +
+                                                    "<option value='L'" + (cliente.tipo === 'L' ? " selected" : "") + ">L</option>" +
+                                                    "<option value='R'" + (cliente.tipo === 'R' ? " selected" : "") + ">R</option>" +
+                                                    "<option value='S'" + (cliente.tipo === 'S' ? " selected" : "") + ">S</option>" +
+                                                    "<option value='X'" + (cliente.tipo === 'X' ? " selected" : "") + ">X</option>" +
+                                                "</select>" +
+                                            "</div>" +
+                                            "<div class='col-sm-3'>" +
+                                                "<label>Pessoa:</label>" +
+                                                "<select id='pessoa_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                                    "<option value=''>Selecione</option>" +
+                                                    "<option value='J'" + (cliente.pessoa === 'J' ? " selected" : "") + ">J</option>" +
+                                                    "<option value='F'" + (cliente.pessoa === 'F' ? " selected" : "") + ">F</option>" +
+                                                "</select>" +
+                                            "</div>" +
+                                        "</div>" +
+
+                                        "<hr>" +
+
+                                        "<div class='row'>" +
+                                            "<div class='col-sm-3'>" +
+                                                "<label>Endereço:</label>" +
+                                                "<input type='text' value='" + cliente.endereco + "' id='endereco_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                            "</div>" +
+                                            "<div class='col-sm-3'>" +
+                                                "<label>Cidade:</label>" +
+                                                "<input type='text' value='" + cliente.cidade + "' id='cidade_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                            "</div>" +
+                                            "<div class='col-sm-3'>" +
+                                                "<label>Bairro:</label>" +
+                                                "<input type='text' value='" + cliente.bairro + "' id='bairro_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                            "</div>" +
+                                            "<div class='col-sm-3'>" +
+                                                "<label>CEP:</label>" +
+                                                "<input type='text' value='" + cliente.cep + "' id='cep_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                            "</div>" +
+                                            "<div class='col-sm-3'>" +
+                                                "<label>Código Município:</label>" +
+                                                "<input type='text' value='" + cliente.codmun + "' id='codmun_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                            "</div>" +
+                                            "<div class='col-sm-3'>" +
+                                                "<label>Estado:</label>" +
+                                                "<select id='estado_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                                    "<option value=''>Selecione</option>" +
+                                                    "<option value='AC'" + (cliente.estado === 'AC' ? " selected" : "") + ">Acre (AC)</option>" +
+                                                    "<option value='AL'" + (cliente.estado === 'AL' ? " selected" : "") + ">Alagoas (AL)</option>" +
+                                                    "<option value='AP'" + (cliente.estado === 'AP' ? " selected" : "") + ">Amapá (AP)</option>" +
+                                                    "<option value='AM'" + (cliente.estado === 'AM' ? " selected" : "") + ">Amazonas (AM)</option>" +
+                                                    "<option value='BA'" + (cliente.estado === 'BA' ? " selected" : "") + ">Bahia (BA)</option>" +
+                                                    "<option value='CE'" + (cliente.estado === 'CE' ? " selected" : "") + ">Ceará (CE)</option>" +
+                                                    "<option value='DF'" + (cliente.estado === 'DF' ? " selected" : "") + ">Distrito Federal (DF)</option>" +
+                                                    "<option value='ES'" + (cliente.estado === 'ES' ? " selected" : "") + ">Espírito Santo (ES)</option>" +
+                                                    "<option value='GO'" + (cliente.estado === 'GO' ? " selected" : "") + ">Goiás (GO)</option>" +
+                                                    "<option value='MA'" + (cliente.estado === 'MA' ? " selected" : "") + ">Maranhão (MA)</option>" +
+                                                    "<option value='MT'" + (cliente.estado === 'MT' ? " selected" : "") + ">Mato Grosso (MT)</option>" +
+                                                    "<option value='MS'" + (cliente.estado === 'MS' ? " selected" : "") + ">Mato Grosso do Sul (MS)</option>" +
+                                                    "<option value='MG'" + (cliente.estado === 'MG' ? " selected" : "") + ">Minas Gerais (MG)</option>" +
+                                                    "<option value='PA'" + (cliente.estado === 'PA' ? " selected" : "") + ">Pará (PA)</option>" +
+                                                    "<option value='PB'" + (cliente.estado === 'PB' ? " selected" : "") + ">Paraíba (PB)</option>" +
+                                                    "<option value='PR'" + (cliente.estado === 'PR' ? " selected" : "") + ">Paraná (PR)</option>" +
+                                                    "<option value='PE'" + (cliente.estado === 'PE' ? " selected" : "") + ">Pernambuco (PE)</option>" +
+                                                    "<option value='PI'" + (cliente.estado === 'PI' ? " selected" : "") + ">Piauí (PI)</option>" +
+                                                    "<option value='RJ'" + (cliente.estado === 'RJ' ? " selected" : "") + ">Rio de Janeiro (RJ)</option>" +
+                                                    "<option value='RN'" + (cliente.estado === 'RN' ? " selected" : "") + ">Rio Grande do Norte (RN)</option>" +
+                                                    "<option value='RS'" + (cliente.estado === 'RS' ? " selected" : "") + ">Rio Grande do Sul (RS)</option>" +
+                                                    "<option value='RO'" + (cliente.estado === 'RO' ? " selected" : "") + ">Rondônia (RO)</option>" +
+                                                    "<option value='RR'" + (cliente.estado === 'RR' ? " selected" : "") + ">Roraima (RR)</option>" +
+                                                    "<option value='SC'" + (cliente.estado === 'SC' ? " selected" : "") + ">Santa Catarina (SC)</option>" +
+                                                    "<option value='SP'" + (cliente.estado === 'SP' ? " selected" : "") + ">São Paulo (SP)</option>" +
+                                                    "<option value='SE'" + (cliente.estado === 'SE' ? " selected" : "") + ">Sergipe (SE)</option>" +
+                                                    "<option value='TO'" + (cliente.estado === 'TO' ? " selected" : "") + ">Tocantins (TO)</option>" +
+                                                "</select>" +
+                                            "</div>" +
+                                        "</div>" +
+
+                                        "<hr>" +
+
+                                        "<div class='row'>" +
+                                            "<div class='col-sm-3'>" +
+                                                "<label>Telefone:</label>" +
+                                                "<input type='text' value='" + cliente.telefone + "' id='telefone_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                            "</div>" +
+                                            "<div class='col-sm-3'>" +
+                                                "<label>E-mail:</label>" +
+                                                "<input type='text' value='" + cliente.email + "' id='email_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                            "</div>" +
+                                            "<div class='col-sm-3'>" +
+                                                "<label>Status:</label>" +
+                                                "<select id='status_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                                    "<option value='1'" + (cliente.status === "1" ? " selected" : "") + ">Ativo</option>" +
+                                                    "<option value='0'" + (cliente.status === "0" ? " selected" : "") + ">Inativo</option>" +
+                                                "</select>" +
+                                            "</div>" +
+                                        "</div>" +
+                                            "<div class='d-flex mt-3 justify-content-center'>" +
+                                                "<button type='button' id='btnEdit_" + cliente.codigo + "_" + cliente.loja + "' class='btn btn-secondary m-1' onclick='btnEditarCliente(\"" + cliente.codigo + "\", \"" + cliente.loja + "\")'>Editar</button>"+
+                                                "<button type='button' id='btnSalvarEdit_" + cliente.codigo + "_" + cliente.loja + "' class='btn btn-success m-1 d-none' onclick='editarCliente(\"" + cliente.codigo + "\", \"" + cliente.loja + "\")'>Salvar</button>" +
+                                                "<button type='button' class='btn btn-danger m-1' onclick='excluirCliente(\"" + cliente.codigo + "\", \"" + cliente.loja + "\")'>Excluir</button>" +
+                                            "</div>" +
+                                        "<div class='d-flex justify-content-center mt-3' id='resultado_" + cliente.codigo + "_" + cliente.loja + "'></div>" +
+                                    "</form>" +
+                                "</div>" +
+                            "</div>"
                     );
+                    
+
+
                 } else {
                     $('#clientesLista').append('<div class="alert alert-warning">Cliente não encontrado.</div>');
                 }
@@ -588,8 +865,6 @@
 
         //PUT
         async function editarCliente(codigo, loja) {
-
-            $('.habilitarCampos_' + codigo + '_' + loja).removeAttr('disabled');
             
             const nome = $('#nome_' + codigo + '_' + loja).val();
             const nreduz = $('#nreduz_' + codigo + '_' + loja).val();
@@ -654,6 +929,10 @@
 
                     });
 
+                    $('#btnEdit_' + codigo + '_' + loja).removeClass('d-none');
+
+                    $('#btnSalvarEdit_'+ codigo + '_' + loja).addClass('d-none');
+
                 }, 4000);
 
             } catch (error) {
@@ -704,11 +983,14 @@
             }
         }
 
+        function btnEditarCliente (codigo, loja){
+            $('#btnSalvarEdit_'+ codigo + '_' + loja).removeClass('d-none');
 
+            $('#btnEdit_' + codigo + '_' + loja).addClass('d-none');
 
-
-
-
+            $('.habilitarCampos_' + codigo + '_' + loja).removeAttr('disabled');
+        }
+        
     </script>
 </body>
 </html>
