@@ -41,7 +41,7 @@
     <div class="container">
 
         <div class="shadow card bg-glass p-3 rounded mb-5">
-            <h3 class="text-center">Cadastrar</h3>
+            <h3 class="text-center">Cadastrar <span id="btnLimpaCampos" style="font-size: 1.5rem; cursor: pointer;" class="mdi mdi-delete text-muted" title="Limpar Campos"></span></h3>
 
             <form id="formIncluir">
                 <div class="row mb-2">
@@ -54,7 +54,7 @@
                         <input type="text" id="loja" placeholder="ex: (1, 2, 3)" class="w-100 form-control" maxlength="3" required>
                     </div>
                     <div class="col-sm-3">
-                        <label>CNPJ: <span class="text-danger">*</span></label>
+                        <label>CNPJ/CPF: <span class="text-danger">*</span></label>
                         <input type="text" id="cnpj" placeholder="ex: (12.345.678/0001-90)" class="w-100 form-control" maxlength="20" required>
                     </div>
                     <div class="col-sm-3">
@@ -251,7 +251,79 @@
     <script>
         // var aData = null;
 
+        //LIMPANDO CAMPOS
+        $('#btnLimpaCampos').on('click', function (){
+            $("#formIncluir").trigger("reset");
+            $("#formIncluir .form-control").removeClass("form-control-danger");
+
+        });
+
+        $('#cnpj').on('change', function () {
+
+            var cnpj = $('#cnpj').val();
+
+            if(cnpj.length > 14){
+                buscarCNPJ(cnpj);
+            }
+
+        });
+
+        //BUSCA CNPJ - BRASIL API
+        function buscarCNPJ(cnpj) {
+            
+            var cnpjLimpo = cnpj.replace(/[^\d]/g, '');
+
+            if (cnpjLimpo.length !== 14) {
+                return;
+            }
+
+            const url = `https://brasilapi.com.br/api/cnpj/v1/${cnpjLimpo}`;
+
+            $.ajax({
+                url: url,
+                method: "GET",
+                dataType: "json",
+                success: function(data) {
+
+                    console.log(data);
+
+                    if (data) {
+                        $("#nome").val(data.razao_social);
+                        $("#nreduz").val(data.nome_fantasia);
+                        $("#endereco").val(data.logradouro);
+                        $("#bairro").val(data.bairro);
+                        $("#cidade").val(data.municipio);
+                        $("#estado").val(data.uf);
+                        $("#cep").val(data.cep);
+
+                        var telefoneCompleto = data.ddd_telefone_1.replace(/[^\d]/g, '');
+                        if(!data.ddd_telefone_1){
+                            telefoneCompleto = data.ddd_telefone_2.replace(/[^\d]/g, '');
+                        }
+                        var ddd = telefoneCompleto.slice(0, 2);
+                        var telefone = telefoneCompleto.slice(2);
+
+                        $("#ddd").val(ddd);
+                        $("#tel").val(telefone);
+
+                        $("#email").val(data.email);
+                    } else {
+                        return;
+                    }
+                },
+                error: function() {
+                    return;
+                }
+            });
+        }
+
+
         //VALIDAÇÕES
+
+        $('#codigo, #cnpj, #cep, #email, #loja, #nome, #nreduz, #tipo, #pessoa, #endereco, #cidade, #bairro, #estado, #status').on('change', function(){
+            $(this).removeClass('form-control-danger');
+        });
+
         function validarCampos() {
             var boolCampos = true;
 
@@ -312,7 +384,7 @@
 
             // Validação do DDD e telefone
             const ddd = $('#ddd');
-            if (!/^\d{2,3}$/.test(ddd.val())) {
+            if (!/^\d{2,3}$/.test(ddd.val()) && ddd.val()) {
                 ddd.val('');
                 ddd.addClass('form-control-danger');
                 boolCampos = false;
@@ -322,7 +394,7 @@
 
             const tel = $('#tel');
             const telVal = tel.val().replace(/[^\d]/g, '');
-            if (!/^\d{8,9}$/.test(telVal)) {
+            if (!/^\d{8,9}$/.test(telVal) && tel.val()) {
                 tel.val('');
                 tel.addClass('form-control-danger');
                 boolCampos = false;
