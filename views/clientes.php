@@ -294,12 +294,33 @@
                         $("#bairro").val(data.bairro);
                         $("#cidade").val(data.municipio);
                         $("#estado").val(data.uf);
-                        $("#cep").val(data.cep);
+                        $("#codmun").val(data.codigo_municipio);
+
+                        var cep = data.cep.replace(/[^\d]/g, '');
+
+                        cep = cep.replace(/(\d{5})(\d{3})/, '$1-$2');
+
+                        $("#cep").val(cep);
 
                         var telefoneCompleto = data.ddd_telefone_1.replace(/[^\d]/g, '');
+                        
                         if(!data.ddd_telefone_1){
                             telefoneCompleto = data.ddd_telefone_2.replace(/[^\d]/g, '');
                         }
+
+                        if (telefoneCompleto){
+
+                            if (telefoneCompleto.length === 10) {
+
+                                telefoneCompleto = telefoneCompleto.replace(/(\d{6})(\d{4})/, '$1-$2');
+
+                            } else if (telefone.length === 11) {
+
+                                telefoneCompleto = telefoneCompleto.replace(/(\d{4})(\d{4})/, '$1-$2');
+
+                            }
+                        }
+
                         var ddd = telefoneCompleto.slice(0, 2);
                         var telefone = telefoneCompleto.slice(2);
 
