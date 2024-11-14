@@ -425,7 +425,7 @@
 
             // Validação do e-mail, se preenchido
             const email = $('#email');
-            if (!email.val().trim() || !/^[\w-]+@([\w-]+\.)+[\w-]{2,4}$/.test(email.val())) {
+            if (email.val() && !/^[\w-]+@([\w-]+\.)+[\w-]{2,4}$/.test(email.val())) {
                 email.val('');
                 email.addClass('form-control-danger');
                 boolCampos = false;
@@ -456,14 +456,13 @@
             const telefone = $('#telefone_' + codigoCliente + '_' + lojaCliente);
             const ddd = $('#ddd_' + codigoCliente + '_' + lojaCliente);
 
-            // Validação do campo "Código"
-            if (!/^\d+$/.test(codigo.val()) || !codigo.val()) { 
-                codigo.val(''); 
-                codigo.addClass('form-control-danger');
-                boolCampos = false;
-            } else {
-                codigo.removeClass('form-control-danger');
-            }
+            // // Validação do campo "Código"
+            // if (!/^\d+$/.test(codigo.val()) || codigo.val()) { 
+            //     codigo.addClass('form-control-danger');
+            //     boolCampos = false;
+            // } else {
+            //     codigo.removeClass('form-control-danger');
+            // }
 
             // Validação do campo "Loja"
             if (!/^\d+$/.test(loja.val()) || !loja.val()) { 
@@ -476,7 +475,7 @@
 
             // Validação de campos obrigatórios
             [loja, nome, nreduz, tipo, pessoa, endereco, cidade, bairro, estado, status].forEach(function (campo) {
-                if (campo.val().trim() === "") {
+                if (campo.val() === "") {
                     campo.val('');
                     campo.addClass('form-control-danger');
                     boolCampos = false;
@@ -486,27 +485,33 @@
             });
 
             // Validação do CNPJ
-            const cnpjVal = cnpj.val().replace(/[^\d]/g, '');
-            if (!cnpjVal || !/^\d{14}$/.test(cnpjVal)) {
-                cnpj.val('');
-                cnpj.addClass('form-control-danger');
-                boolCampos = false;
-            } else {
-                cnpj.removeClass('form-control-danger');
-            }
-
-            // Validação do CEP
-            const cepVal = cep.val().replace(/[^\d]/g, '');
-            if (!cepVal || !/^\d{8}$/.test(cepVal)) {
-                cep.val('');
-                cep.addClass('form-control-danger');
-                boolCampos = false;
-            } else {
-                cep.removeClass('form-control-danger');
+            if(cnpj.val()){
+                const cnpjVal = cnpj.val().replace(/[^\d]/g, '');
+                if (!cnpjVal || !/^\d{14}$/.test(cnpjVal)) {
+                    cnpj.val('');
+                    cnpj.addClass('form-control-danger');
+                    boolCampos = false;
+                } else {
+                    cnpj.removeClass('form-control-danger');
+                }
             }
             
+
+            // Validação do CEP
+            if(cep.val()){
+                const cepVal = cep.val().replace(/[^\d]/g, '');
+                if (!cepVal || !/^\d{8}$/.test(cepVal)) {
+                    cep.val('');
+                    cep.addClass('form-control-danger');
+                    boolCampos = false;
+                } else {
+                    cep.removeClass('form-control-danger');
+                }
+            }
+            
+            
             //Validação de DDD
-            if (!/^\d{2,3}$/.test(ddd.val())) {
+            if (!/^\d{2,3}$/.test(ddd.val()) && ddd.val()) {
                 ddd.val('');
                 ddd.addClass('form-control-danger');
                 boolCampos = false;
@@ -515,17 +520,20 @@
             }
 
             // Validação do Telefone
-            const telefoneVal = telefone.val().replace(/[^\d]/g, '');
-            if (!/^\d{8,9}$/.test(telefoneVal)) {
-                telefone.val('');
-                telefone.addClass('form-control-danger');
-                boolCampos = false;
-            } else {
-                telefone.removeClass('form-control-danger');
-            }
+            if(telefone.val()){
+                const telefoneVal = telefone.val().replace(/[^\d]/g, '');
+                if (!/^\d{8,9}$/.test(telefoneVal)) {
+                    telefone.val('');
+                    telefone.addClass('form-control-danger');
+                    boolCampos = false;
+                } else {
+                    telefone.removeClass('form-control-danger');
+                }
 
+            }
+            
             // Validação do e-mail
-            if (!email.val().trim() || !/^[\w-]+@([\w-]+\.)+[\w-]{2,4}$/.test(email.val())) {
+            if (email.val() && !/^[\w-]+@([\w-]+\.)+[\w-]{2,4}$/.test(email.val())) {
                 email.val('');
                 email.addClass('form-control-danger');
                 boolCampos = false;
@@ -632,14 +640,14 @@
                                         "<div class='row mb-2'>" +
                                             "<div class='col-sm-3'>" +
                                                 "<label>Código: <span class='text-danger'>*</span></label>" +
-                                                "<input type='text' maxlength='5' required value='" + cliente.codigo + "' id='codigo_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                                "<input type='text' maxlength='5' required value='" + cliente.codigo + "' id='codigo_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100' disabled>" +
                                             "</div>" +
                                             "<div class='col-sm-3'>" +
                                                 "<label>Loja: <span class='text-danger'>*</span></label>" +
                                                 "<input type='text' maxlength='3' required value='" + cliente.loja + "' id='loja_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100' disabled>" +
                                             "</div>" +
                                             "<div class='col-sm-3'>" +
-                                                "<label>CNPJ: <span class='text-danger'>*</span></label>" +
+                                                "<label>CNPJ/CPF: <span class='text-danger'>*</span></label>" +
                                                 "<input type='text' maxlength='20' required value='" + cliente.cnpj + "' id='cnpj_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
                                             "</div>" +
                                             "<div class='col-sm-3'>" +
@@ -745,11 +753,11 @@
                                             "</div>" +
                                             "<div class='col-sm-3'>" +
                                                 "<label>Telefone:</label>" +
-                                                "<input type='text' maxlength='20' value='" + cliente.telefone + "' id='telefone_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                                "<input type='text' maxlength='20' value='" + cliente.tel + "' id='tel_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
                                             "</div>" +
                                             "<div class='col-sm-3'>" +
-                                                "<label>E-mail: <span class='text-danger'>*</span></label>" +
-                                                "<input type='text' maxlength='50' required value='" + cliente.email + "' id='email_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                                "<label>E-mail: </label>" +
+                                                "<input type='text' maxlength='50' value='" + cliente.email + "' id='email_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
                                             "</div>" +
                                             "<div class='col-sm-3'>" +
                                                 "<label>Status: <span class='text-danger'>*</span></label>" +
@@ -788,11 +796,13 @@
 
             $('#clientesLista').css('display', '');
 
-            const codigo = $('#inputBuscaClienteCodigo').val();
-            const loja = $('#inputBuscaClienteLoja').val();
+            var codigo = $('#inputBuscaClienteCodigo').val();
+            var loja = $('#inputBuscaClienteLoja').val();
+
+            console.log(codigo + ' ' + loja);
 
             try {
-                const response = await fetch(`http://localhost:8091/restapi/clientes/lista_cliente?codigo=` + codigo + `&loja=` + loja + ``, {
+                var response = await fetch(`http://localhost:8091/restapi/clientes/lista_cliente?codigo=` + codigo + `&loja=` + loja + ``, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -926,25 +936,25 @@
                     $('#clientesLista').append(
                             "<div class='row border shadow m-1 py-3 px-0 mb-4' id='cliente_" + cliente.codigo + "_" + cliente.loja + "'>" +
                                 "<div class='col-sm-12'>" +
-                                    "<h5 class='text-center text-muted'>" + c + " - ID: " + cliente.codigo + " Loja: " + cliente.loja + " Nome: " + cliente.nreduz + "</h5>" +
+                                    "<h5 class='text-center text-muted'>ID: " + cliente.codigo + " Loja: " + cliente.loja + " Nome: " + cliente.nreduz + "</h5>" +
                                     "<form id='formCliente_" + cliente.codigo + "_" + cliente.loja + "'>" +
                                         "<div class='row mb-2'>" +
                                             "<div class='col-sm-3'>" +
                                                 "<label>Código: <span class='text-danger'>*</span></label>" +
-                                                "<input type='text' maxlength='5' required value='" + cliente.codigo + "' id='codigo_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                                "<input type='text' maxlength='5' required value='" + cliente.codigo + "' id='codigo_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100' disabled>" +
                                             "</div>" +
                                             "<div class='col-sm-3'>" +
                                                 "<label>Loja: <span class='text-danger'>*</span></label>" +
                                                 "<input type='text' maxlength='3' required value='" + cliente.loja + "' id='loja_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100' disabled>" +
                                             "</div>" +
                                             "<div class='col-sm-3'>" +
-                                                "<label>CNPJ: <span class='text-danger'>*</span></label>" +
+                                                "<label>CNPJ/CPF: <span class='text-danger'>*</span></label>" +
                                                 "<input type='text' maxlength='20' required value='" + cliente.cnpj + "' id='cnpj_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
                                             "</div>" +
                                             "<div class='col-sm-3'>" +
                                                 "<label>Nome: <span class='text-danger'>*</span></label>" +
                                                 "<input type='text' maxlength='50' required value='" + cliente.nome + "' id='nome_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
-                                            "</div>" +
+                            sq                "</div>" +
                                         "</div>" +
 
                                         "<div class='row mb-2'>" +
@@ -1044,10 +1054,10 @@
                                             "</div>" +
                                             "<div class='col-sm-3'>" +
                                                 "<label>Telefone:</label>" +
-                                                "<input type='text' maxlength='20' value='" + cliente.telefone + "' id='telefone_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
+                                                "<input type='text' maxlength='20' value='" + cliente.tel + "' id='tel_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
                                             "</div>" +
                                             "<div class='col-sm-3'>" +
-                                                "<label>E-mail: <span class='text-danger'>*</span></label>" +
+                                                "<label>E-mail: </label>" +
                                                 "<input type='text' maxlength='50' required value='" + cliente.email + "' id='email_" + cliente.codigo + "_" + cliente.loja + "' class='form-control w-100 habilitarCampos_" + cliente.codigo + "_" + cliente.loja + "' disabled>" +
                                             "</div>" +
                                             "<div class='col-sm-3'>" +
@@ -1093,42 +1103,59 @@
                 var nreduz = $('#nreduz').val();
                 var pessoa = $('#pessoa').val();
 
-                var cnpjVal = $('#cnpj').val().replace(/[^\d]/g, '');
+                var cnpjVal = $('#cnpj').val();
+
+                if(cnpjVal){
+                    cnpjVal = cnpjVal.replace(/[^\d]/g, '');
+                }
 
                 var cnpj = cnpjVal;
                 var tipo = $('#tipo').val();
                 var endereco = $('#endereco').val();
                 var bairro = $('#bairro').val();
 
-                var cidade = $('#cidade').val().toUpperCase();
+                var cidade = $('#cidade').val();
+
+                if(cidade){
+                    cidade = cidade.toUpperCase();
+                }
 
                 var codmun = $('#codmun').val();
                 var estado = $('#estado').val();
+
                 var cep = $('#cep').val();
+
+                if(cep){
+                    cep = cep.replace(/[^\d]/g, '');
+                }
+
                 var status = $('#status').val();
                 var ddd = $('#ddd').val();
                 var tel = $('#tel').val();
                 var email = $('#email').val();
+                
 
-                // console.log({
-                //     codigo: codigo,
-                //     loja: loja,
-                //     nome: nome,
-                //     nreduz: nreduz,
-                //     pessoa: pessoa,
-                //     cnpj: cnpj,
-                //     tipo: tipo,
-                //     endereco: endereco,
-                //     bairro: bairro,
-                //     cidade: cidade,
-                //     codmun: codmun,
-                //     estado: estado,
-                //     cep: cep,
-                //     status: status,
-                //     ddd: ddd,
-                //     tel: tel,
-                //     email: email
-                // });
+
+                console.log({
+                    "Teste": "Console.log",
+                    "codigo": codigo,
+                    "loja": loja,
+                    "nome": nome,
+                    "nreduz": nreduz,
+                    "pessoa": pessoa,
+                    "cnpj": cnpj,
+                    "tipo": tipo,
+                    "endereco": endereco,
+                    "bairro": bairro,
+                    "cidade": cidade,
+                    "codmun": codmun,
+                    "estado": estado,
+                    "cep": cep,
+                    "status": status,
+                    "ddd": ddd,
+                    "tel": tel,
+                    "email": email
+                });
 
                 // // aData = [{
                 // //     "codigo": codigo,
@@ -1152,49 +1179,76 @@
                 
                 // console.log(aData);
 
-                try {
-                    const response = await fetch("http://localhost:8091/restapi/clientes/incluir", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                            "Authorization": "Basic YWRtaW46IA=="
-                        },
-                        body: JSON.stringify({
-                            codigo,
-                            loja,
-                            nome,
-                            nreduz,
-                            pessoa,
-                            cnpj,
-                            tipo,
-                            endereco,
-                            bairro,
-                            cidade,
-                            codmun,
-                            estado,
-                            cep,
-                            status,
-                            ddd,
-                            tel,
-                            email
-                        })
-                    });
+                if((pessoa == 'J' && cnpj.length == 14) || (pessoa == 'F' && cnpj.length < 14)){
+                        try {
 
-                    if (!response.ok) {
-                        throw new Error('Erro na resposta da rede');
+                            var responseGet = await fetch(`http://localhost:8091/restapi/clientes/lista_cliente?codigo=` + codigo + `&loja=` + loja + ``, {
+                                method: "GET",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                    "Authorization": "Basic YWRtaW46IA=="
+                                }
+                            });
+
+                            var cliente = await responseGet.json();
+                            cliente = cliente.items;
+
+                            console.log(cliente);
+
+                            if(cliente.length == 0){
+                                    var response = await fetch("http://localhost:8091/restapi/clientes/incluir", {
+                                    method: "POST",
+                                    headers: {
+                                        "Content-Type": "application/json",
+                                        "Authorization": "Basic YWRtaW46IA=="
+                                    },
+                                    body: JSON.stringify({
+                                        codigo,
+                                        loja,
+                                        nome,
+                                        nreduz,
+                                        pessoa,
+                                        cnpj,
+                                        tipo,
+                                        endereco,
+                                        bairro,
+                                        cidade,
+                                        codmun,
+                                        estado,
+                                        cep,
+                                        status,
+                                        ddd,
+                                        tel,
+                                        email
+                                    })
+
+                                });
+
+                                if (!response.ok) {
+                                    throw new Error('Erro na resposta da rede');
+                                }
+
+                                var result = await response.json();
+                                $('#resultado').html("<div>Resultado: <span class='text-primary'>" + result.resultado + "</span></div>");
+                                $('#formIncluir')[0].reset();
+
+                                setTimeout(() => {
+                                    $('#resultado').html('');
+                                }, 4000);
+                            } else{
+                                throw new Error('Cliente já cadastrado!');
+                            }
+
+                        
+
+                    } catch (error) {
+                        alert('Erro ao incluir cliente: ' + error.message);
                     }
-
-                    const result = await response.json();
-                    $('#resultado').html("<div>Resultado: <span class='text-primary'>" + result.resultado + "</span></div>");
-                    $('#formIncluir')[0].reset();
-
-                    setTimeout(() => {
-                        $('#resultado').html('');
-                    }, 4000);
-
-                } catch (error) {
-                    alert('Erro ao incluir cliente: ' + error.message);
+                } else{
+                    alert('Erro ao incluir cliente: Pessoa inválido.');
                 }
+
+                
             }
 
             
@@ -1207,25 +1261,35 @@
 
             if(boolCampos){
                     
-                const nome = $('#nome_' + codigo + '_' + loja).val();
-                const nreduz = $('#nreduz_' + codigo + '_' + loja).val();
-                const pessoa = $('#pessoa_' + codigo + '_' + loja).val();
+                var nome = $('#nome_' + codigo + '_' + loja).val();
+                var nreduz = $('#nreduz_' + codigo + '_' + loja).val();
+                var pessoa = $('#pessoa_' + codigo + '_' + loja).val();
 
-                const cnpj = $('#cnpj_' + codigo + '_' + loja).val().replace(/[^\d]/g, '');
+                var cnpj = $('#cnpj_' + codigo + '_' + loja).val();
 
-                const tipo = $('#tipo_' + codigo + '_' + loja).val();
-                const endereco = $('#endereco_' + codigo + '_' + loja).val();
-                const bairro = $('#bairro_' + codigo + '_' + loja).val();
+                if(cnpj){
+                    cnpj = cnpj.replace(/[^\d]/g, '');
+                }
 
-                const cidade = $('#cidade_' + codigo + '_' + loja).val().toUpperCase();
+                var tipo = $('#tipo_' + codigo + '_' + loja).val();
+                var endereco = $('#endereco_' + codigo + '_' + loja).val();
+                var bairro = $('#bairro_' + codigo + '_' + loja).val();
 
-                const codmun = $('#codmun_' + codigo + '_' + loja).val();
-                const estado = $('#estado_' + codigo + '_' + loja).val();
-                const cep = $('#cep_' + codigo + '_' + loja).val();
-                const status = $('#status_' + codigo + '_' + loja).val();
-                const ddd = $('#ddd_' + codigo + '_' + loja).val();
-                const tel = $('#tel_' + codigo + '_' + loja).val();
-                const email = $('#email_' + codigo + '_' + loja).val();
+                var cidade = $('#cidade_' + codigo + '_' + loja).val().toUpperCase();
+
+                var codmun = $('#codmun_' + codigo + '_' + loja).val();
+                var estado = $('#estado_' + codigo + '_' + loja).val();
+
+                var cep = $('#cep_' + codigo + '_' + loja).val();
+
+                if(cep){
+                    cep = cep.replace(/[^\d]/g, '');
+                }
+
+                var status = $('#status_' + codigo + '_' + loja).val();
+                var ddd = $('#ddd_' + codigo + '_' + loja).val();
+                var tel = $('#tel_' + codigo + '_' + loja).val();
+                var email = $('#email_' + codigo + '_' + loja).val();
 
 
                 try {
@@ -1277,6 +1341,8 @@
                         $('#btnEdit_' + codigo + '_' + loja).removeClass('d-none');
 
                         $('#btnSalvarEdit_'+ codigo + '_' + loja).addClass('d-none');
+
+                        $('.habilitarCampos_' + codigo + '_' + loja).attr('disabled', 'disabled');
 
                     }, 4000);
 
